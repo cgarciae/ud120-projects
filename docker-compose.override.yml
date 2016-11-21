@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  tf-cpu:
+    volumes:
+      - ./:/notebooks
+      - ./data:/data
+      - ./models/:/models
+      - ./:/code
+      - ../tensorbuilder:/tensorbuilder
+      - ../phi:/phi
+    command: /code/run.sh
+
+  tf-gpu:
+    #command: bash -c "cd /tensorbuilder && python setup.py install && cd /notebooks && /run_jupyter.sh"
+    volumes:
+      - ./:/notebooks
+      - ./data:/data
+      - ./models/:/models
+      - ./:/code
+      - ../tensorbuilder:/tensorbuilder
+      - ../phi:/phi
+    command: /code/run.sh
